@@ -59,6 +59,9 @@ export class ProxyService {
         this.refreshHistory();
         this.refreshStats();
         this.loading.set(false);
+        const errorMsg = err.error?.message || err.message || 'Connection to proxy failed';
+        console.error('Proxy Service Error:', errorMsg);
+        // We throw the error so the component can handle it too
         throw err;
       })
     );

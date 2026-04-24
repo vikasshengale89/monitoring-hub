@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProxyService, ProxyRequest, ProxyResponse } from '../../core/services/proxy.service';
+import { ProxyService, ProxyRequest, ProxyResponse, Stats } from '../../core/services/proxy.service';
 import { RequestFormComponent } from '../../shared/components/request-form/request-form.component';
 import { ResponseViewComponent } from '../../shared/components/response-view/response-view.component';
 import { HistoryListComponent } from '../../shared/components/history-list/history-list.component';
@@ -143,8 +143,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getSuccessRate(stats: any) {
-    if (stats.totalRequests === 0) return 0;
+  getSuccessRate(stats: Stats | null) {
+    if (!stats || stats.totalRequests === 0) return 0;
     return Math.round((stats.successfulRequests / stats.totalRequests) * 100);
   }
 }
