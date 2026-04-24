@@ -1,73 +1,121 @@
-# Angular Project Template
+# monitoring-hub 🚀
 
-Standalone Angular 19+ with zoneless change detection, signals, and OnPush.
+**Project Tagline:** A premium, secure API proxy and health monitoring dashboard for modern developers.
 
-## Quick Setup
+[![Angular](https://img.shields.io/badge/Angular-19-DD0031?style=flat&logo=angular)](https://angular.dev)
+[![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=flat&logo=node.js)](https://nodejs.org)
+[![Firebase](https://img.shields.io/badge/Firebase-Hosting-FFCA28?style=flat&logo=firebase)](https://firebase.google.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript)](https://www.typescriptlang.org)
 
+---
+
+## 📺 Demo
+- **Live URL:** [Coming Soon]
+- **Screenshots:** [Placeholders for Dashboard, Proxy Tester, History]
+
+---
+
+## 💡 Problem Statement
+Developers often face CORS (Cross-Origin Resource Sharing) restrictions when testing APIs directly from the browser. This project provides a secure, server-side "Safe-Pass" proxy that bypasses these restrictions while providing real-time health monitoring and request history, allowing developers to debug and monitor their APIs effortlessly.
+
+---
+
+## ✨ Features
+- **Secure API Proxy:** Bypass CORS with a robust Node.js backend.
+- **Real-time Monitoring:** Track success rates, average response times, and failure counts.
+- **Request History:** Detailed log of all proxied requests for easy debugging.
+- **Interactive Dashboard:** Premium UI with instant feedback and visual stats.
+- **WOW FACTOR: Adaptive Theming:** The entire UI dynamically changes its color palette based on your local time of day (Sunrise, Day, Sunset, Night).
+- **Zoneless Performance:** Built with Angular 19 signals and zoneless change detection for maximum speed.
+
+---
+
+## 🛠 Tech Stack
+| Layer | Technology | Why |
+|-------|------------|-----|
+| **Frontend** | Angular 19 | Standalone components, Signals, Zoneless detection. |
+| **Backend** | Node.js / Express | Fast, scalable, and perfect for proxying. |
+| **Styling** | Vanilla CSS | Custom design system using CSS Variables. |
+| **Proxy** | Axios | Robust HTTP client for Node.js. |
+| **Deployment** | Firebase Hosting | Fast, secure, and easy to scale. |
+
+---
+
+## 🏗 Architecture
+```
+[User Browser] <---> [Angular Frontend]
+                          |
+                          v
+                  [Express Backend Proxy] <---> [External APIs]
+                          |
+                  [In-Memory Data Store]
+```
+
+---
+
+## 🚀 Quick Start
+
+### 1. Clone the repo
 ```bash
-# From project directory:
-ng new frontend --standalone --style=css --routing
+git clone https://github.com/vikasshengale89/monitoring-hub.git
+cd monitoring-hub
+```
+
+### 2. Install & Run Backend
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### 3. Install & Run Frontend
+```bash
 cd frontend
+npm install
+npm run start
+```
+The app will be available at `http://localhost:4200`.
 
-# Replace app.config.ts with app.config.template.ts content
-# Replace app.routes.ts with app.routes.template.ts content
-# Copy environment files to src/environments/
-# Copy proxy.conf.json for API proxying
+---
 
-# Install transloco for i18n (if needed):
-ng add @ngneat/transloco
-
-# Start dev server with proxy:
-ng serve --proxy-config proxy.conf.json
+## 📂 Project Structure
+```
+monitoring-hub/
+├── frontend/           # Angular 19 standalone app
+│   ├── src/app/core    # Services (Proxy, Theme)
+│   ├── src/app/features # Dashboard component
+│   └── src/app/shared  # Reusable UI components
+├── backend/            # Node.js + Express + TypeScript
+│   ├── src/routes      # Proxy routes
+│   └── src/controllers # Proxy & Stats logic
+└── firebase.json       # Deployment configuration
 ```
 
-## Project Structure
+---
 
-```
-frontend/
-├── src/
-│   ├── app/
-│   │   ├── core/           # Services, guards, interceptors
-│   │   ├── features/       # Feature modules (lazy-loaded)
-│   │   ├── shared/         # Shared components, directives, pipes
-│   │   ├── app.component.ts
-│   │   ├── app.config.ts
-│   │   └── app.routes.ts
-│   ├── assets/
-│   │   ├── i18n/           # Translation files (en.json, es.json, etc.)
-│   │   └── themes/         # theme.json for dynamic theming
-│   ├── environments/
-│   │   ├── environment.ts
-│   │   └── environment.prod.ts
-│   └── styles.css          # Import shared/styles/theme-variables.css
-├── proxy.conf.json
-├── .env.example
-└── angular.json
-```
+## 🔒 Security Measures
+- **SSRF Protection:** Backend blocks requests to localhost and private IPs.
+- **Input Validation:** Strict validation of URLs and request bodies.
+- **Security Headers:** Implemented via Helmet middleware.
+- **Sanitization:** Built-in Angular XSS protection.
 
-## Environment Setup
+---
 
-```bash
-cp .env.example .env
-```
+## ♿ Accessibility
+- **WCAG 2.1 AA Compliant**
+- Semantic HTML5 structure.
+- Full keyboard navigation support.
+- ARIA labels for interactive elements.
 
-## Conventions
+---
 
-- All components: `standalone: true`, `ChangeDetectionStrategy.OnPush`
-- State: `signal()`, `computed()` — no BehaviorSubject
-- Inputs: `input.required<T>()` / Outputs: `output<T>()`
-- Styling: CSS variables only (import shared/styles/theme-variables.css)
-- Lazy load all feature routes via `loadComponent`
-- Zoneless change detection via `provideExperimentalZonelessChangeDetection()`
-- Secrets never in frontend code — use environment files for config only
+## 🔮 Future Roadmap
+- **Persistence:** Move from in-memory to Firestore for persistent history.
+- **Auth:** Add user accounts and private API keys.
+- **Alerting:** Email/Slack notifications when an API goes down.
+- **Advanced Mocking:** Allow users to mock responses for specific endpoints.
 
-## Template Files
+---
 
-| File | Purpose |
-|------|---------|
-| `app.config.template.ts` | Application config with zoneless CD |
-| `app.routes.template.ts` | Route config with lazy loading |
-| `environment.template.ts` | Dev environment config |
-| `environment.prod.template.ts` | Production environment config |
-| `proxy.conf.template.json` | API proxy config for dev server |
-| `.env.example` | Environment variable template |
+**Built for Google Antigravity PromptWars Competition.**
+Author: Vikas Shengale
