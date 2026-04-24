@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "monitoring-hub"
-  }
+    "default": "monitoring-hub",
+    "staging": "monitoring-hub1"
+  },
+  "targets": {},
+  "etags": {}
 }
